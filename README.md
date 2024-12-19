@@ -92,6 +92,10 @@ Configuração de notificações baseadas na localização do usuário. Históri
 
 Visualização de dados passados para análise de tendências.
 
+**Autores**
+
+- (https://github.com/sifontesj23) - Jesus Sifontes
+- (https://github.com/dronreef2?tab=repositories)- Guilherme Nas
 
 **Referencias**
 
