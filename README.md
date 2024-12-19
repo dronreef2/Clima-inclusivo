@@ -1,70 +1,120 @@
-# Getting Started with Create React App
+**Documentação do Projeto Clima Inclusivo**
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+**Apresentação do Projeto**
 
-## Available Scripts
+Esse projeto foi desenvolvido pela turma Acelerado Inclusiva com o intuito de criar uma aplicação web que fornece informações climáticas acessíveis e úteis, considerando as necessidades dos usuários afetados por eventos climáticos extremos, como enchentes. A aplicação foi desenvolvida utilizando React e boas práticas de desenvolvimento.
 
-In the project directory, you can run:
+**Objetivo**
 
-### `npm start`
+O objetivo do Clima Inclusivo é:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Fornecer informações meteorológicas em tempo real para a população, com foco especial em alertas de eventos extremos.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Tornar os dados climáticos acessíveis, inclusive para pessoas com deficiências.
 
-### `npm test`
+Ajudar comunidades vulneráveis a se prepararem melhor para eventos climáticos severos, promovendo segurança e bem-estar.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+**Ferramentas Utilizadas**
 
-### `npm run build`
+React: Biblioteca JavaScript para construção da interface de usuário.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Node.js: Para configuração do backend e gerenciamento de dependências.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Git e GitHub: Controle de versão e hospedagem do código.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+API Meteorológica: Utilização de serviços como OpenWeatherMap ou outros para fornecimento de dados climáticos.
 
-### `npm run eject`
+**Estrutura do Projeto**
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+/clima-inclusivo
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+├── /src
+│   ├── /components  # Componentes reutilizáveis da interface
+│   ├── /pages       # Páginas principais da aplicação
+│   ├── /services    # Serviços para consumo de APIs
+│   ├── /styles      # Arquivos de estilização (CSS/Tailwind)
+│   └── index.js     # Arquivo principal de entrada da aplicação
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+├── /public           # Recursos públicos como imagens e ícones
+├── package.json      # Dependências e scripts do projeto
+└── README.md         # Documentação inicial do projeto
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+**Guia de Instalação**
 
-## Learn More
+Certifique-se de ter o Node.js (versão 14 ou superior) instalado em sua máquina.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Utilize um gerenciador de pacotes como npm ou yarn.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+**Comandos**
 
-### Code Splitting
+# Clonando o repositório:
+git clone https://github.com/seu-usuario/clima-inclusivo.git
+cd clima-inclusivo
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+# Instalando dependências:
+npm install
 
-### Analyzing the Bundle Size
+# Executando o projeto:
+npm start
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+# Acesse o projeto no navegador em http://localhost:3000.
 
-### Making a Progressive Web App
+**Comandos Essenciais GIT**
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+# Clonar o repositório:
+git clone <link do projeto>
 
-### Advanced Configuration
+# Acessar a pasta do projeto:
+cd clima-inclusivo
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+# Criar uma nova branch:
+git checkout -b <nome-da-sua-branch>
 
-### Deployment
+# Adicionar as alterações:
+git add .
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+# Realizar o commit:
+git commit -m "Descrição das alterações realizadas"
 
-### `npm run build` fails to minify
+# Enviar as alterações para o repositório remoto:
+git push origin <nome-da-sua-branch>
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+# Atualizar sua branch local:
+git pull origin main
+
+**Alerta**: O nome da branch deve estar relacionado ao nome da tarefa.
+Exemplo:
+
+Nome da tarefa: Criar componente Sobre
+
+Nome da branch: criar-componente-sobre
+
+**Funcionalidades Principais**
+
+**Consulta de Informações Climáticas**
+
+Dados atualizados em tempo real sobre condições climáticas.
+
+Alertas de eventos climáticos extremos, como enchentes.
+
+**Interface Acessível**
+
+Design responsivo para diferentes dispositivos.
+
+Compatibilidade com leitores de tela.
+
+**Personalização**
+
+Configuração de notificações baseadas na localização do usuário.
+
+**Histórico Climático**
+
+Visualização de dados passados para análise de tendências.
+
+**Referências**
+
+OpenWeatherMap - API para dados climáticos.
+
+React - Biblioteca JavaScript.
+
+MDN Web Docs - CSS - Documentação oficial sobre CSS.
