@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Previsão do Clima</title>
+
+  <!-- Estilos modernos e limpos -->
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #f4f7fc;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      padding: 0;
+    }
+
+    h1 {
+      color: #333;
+      margin-bottom: 20px;
+    }
+
+    .container {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      max-width: 500px;
+      text-align: center;
+    }
+
+    #weather {
+      margin-top: 20px;
+      padding: 10px;
+      font-size: 1.1rem;
+    }
+
+    #btn {
+      background-color: #4CAF50;
+      color: #fff;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    #btn:hover {
+      background-color: #45a049;
+    }
+
+    .weather-item {
+      margin-top: 15px;
+    }
+
+    img {
+      width: 60px;
+      height: 60px;
+      margin-top: 10px;
+    }
+
+    .error {
+      color: #d9534f;
+      font-size: 1.2rem;
+    }
+
+    .loading {
+      font-size: 1.1rem;
+      color: #007bff;
+    }
+
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 1.5rem;
+      }
+
+      #btn {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+    <h1>Consultar o Clima</h1>
+    <button id="btn">Ver Clima de Porto Alegre</button>
+
+    <!-- Área para exibir os dados do clima -->
+    <div id="weather">
+      <p>Dados de clima aparecerão aqui quando você clicar no botão.</p>
+    </div>
+  </div>
+
+  <script>
+    // Chave de API 
+    const API_KEY = '221ffc853d0fe920bb3bb7b17604e522';
+    const BASE_URL = 'https://api.openweathermap.org/data/2.5/weather';
+
+    /**
+     * Função para fazer a chamada à API do OpenWeatherMap e retornar dados do clima
+     * @param {string} city - Nome da cidade para a qual buscar o clima
+     * @param {string} units - Unidade de medida para a temperatura (pode ser 'metric' ou 'imperial')
+     * @returns {Promise<Object>} - Dados do clima
+     */
+    async function getWeather(city, units = 'metric') {
+      const url = `${BASE_URL}?q=${city}&units=${units}&appid=${API_KEY}`;
+      try {
+        const response = await fetch(url);
+        if (!response.ok) throw new Error('Erro ao buscar dados do clima');
+        return await response.json();
+      } catch (error) {
+        console.error('Erro:', error);
+        return null;
+      }
+    }
+
+    /**
+     * Função para formatar os dados recebidos e exibir as informações principais
+     * @param {Object} data - Dados do clima
+     */
+    function displayWeather(data) {
+      const { name, main, weather } = data;
+
+      const temp = main.temp;
+      const humidity = main.humidity;
+      const condition = weather[0].description;
+      const icon = `http://openweathermap.org/img/wn/${weather[0].icon}@2x.png`; // URL do ícone
+
+      const weatherHtml = `
+        <h2>Clima em ${name}</h2>
+        <img src="${icon}" alt="Ícone do clima">
+        <div class="weather-item">
+          <p><strong>Temperatura:</strong> ${temp}°C</p>
+          <p><strong>Humidade:</strong> ${humidity}%</p>
+          <p><strong>Condição:</strong> ${condition}</p>
+        </div>
+      `;
+      document.getElementById('weather').innerHTML = weatherHtml;
+    }
+
+    /**
+     * Função para exibir uma mensagem de erro
+     */
+    function displayError() {
+      document.getElementById('weather').innerHTML = '<p class="error">Erro ao carregar os dados do clima. Tente novamente mais tarde.</p>';
+    }
+
+    /**
+     * Função para exibir uma mensagem de carregamento
+     */
+    function displayLoading() {
+      document.getElementById('weather').innerHTML = '<p class="loading">Carregando dados do clima...</p>';
+    }
+
+    // Evento de clique no botão
+    document.getElementById('btn').addEventListener('click', () => {
+      displayLoading();
+
+      getWeather('Porto Alegre')
+        .then(data => {
+          if (data) {
+            displayWeather(data);
+          } else {
+            displayError();
+          }
+        })
+        .catch(error => {
+          console.error('Erro na chamada da API:', error);
+          displayError();
+        });
+    });
+  </script>
+
+</body>
+
+</html>
